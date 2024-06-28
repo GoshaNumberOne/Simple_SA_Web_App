@@ -43,14 +43,20 @@ def get_subjectivity(input_text: str):
 
 st.header('Sentiment Analysis')
 
-with st.expander('Analyze Text'):
-    text = st.text_input('Text here: ')
-    if text:
-        mood: Mood = get_mood(text, threshold=0.3)
-        sudj: Subjectivity = get_subjectivity(text)
+text = st.text_input('Analyze text here : ')
+if text:
 
-        st.write('Polarity: ', f'{mood.polarity} ({mood.sentiment})')
-        st.write('Subjectivity: ', f'{sudj.essence} ({sudj.value})')
+    mood: Mood = get_mood(text, threshold=0.3)
+    sudj: Subjectivity = get_subjectivity(text)
 
+    st.write('Polarity: ', f'{mood.polarity} ({mood.sentiment})')
+    st.write('Subjectivity: ', f'{sudj.essence} ({sudj.value})')
 
+for i in range(20):
+    st.text("")
 
+with st.expander('About me'):
+    st.write('Иван Семыкин - студент факультета компьютерных наук. Всю жизнь прожил в Воронеже.')
+    st.write('Контакты:')
+    st.write('https://vk.com/gocha_number_one')
+    st.write('https://t.me/GoshaNumberOne')
